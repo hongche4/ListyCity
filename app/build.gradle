@@ -1,13 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
 }
-
 android {
     namespace 'com.example.listycity'
     compileSdk {
         version = release(36)
     }
-
     defaultConfig {
         applicationId "com.example.listycity"
         minSdk 24
@@ -17,7 +15,11 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -29,7 +31,6 @@ android {
         targetCompatibility JavaVersion.VERSION_11
     }
 }
-
 dependencies {
     implementation libs.appcompat
     implementation libs.material
@@ -38,4 +39,10 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.0.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.0.1'
+    compileOnly(files("C:/Users/brady/AppData/Local/Android/Sdk/platforms/android-36/android.jar"))
 }
+
+
+
