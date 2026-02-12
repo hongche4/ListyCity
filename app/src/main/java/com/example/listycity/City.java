@@ -9,7 +9,7 @@ public class City implements Comparable {
     /**
      * Make a city with a name and a province.
      *
-     * @param city     city name (like "Edmonton")
+     * @param city  city name (like "Edmonton")
      * @param province province name (like "Alberta")
      */
     public City(String city, String province) {
@@ -59,5 +59,15 @@ public class City implements Comparable {
         }
         City other = (City) obj;
         return city.equals(other.city) && province.equals(other.province);
+    }
+    /**
+     * Hash code for City.
+     * If two City objects are equal (same city + province), they must have the same hash code.
+     *
+     * @return hash code value
+     */
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(city, province);
     }
 }

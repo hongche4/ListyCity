@@ -26,7 +26,7 @@ public class CityList {
      * @return sorted list of cities
      */
     public List<City> getCities() {
-        List<City> list = cities;
+        List<City> list = new ArrayList<>(cities);
         Collections.sort(list);
         return list;
     }
